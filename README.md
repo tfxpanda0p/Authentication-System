@@ -2,7 +2,7 @@
 
 Developed a secure and scalable authentication system using Node.js, Express, and MongoDB, implementing complete user authentication and authorization workflows based on RESTful APIs and industry-standard security practices.
 
-✨ Key Features
+✨ Key Features:-
 
 User Registration & Login
 
@@ -20,7 +20,7 @@ Logout Functionality
 
 Centralized Error Handling & Logging
 
-🛠️ Technologies Used
+🛠️ Technologies Used:-
 
 Express.js (v5) – REST API framework
 
@@ -42,7 +42,7 @@ morgan – Request logging
 
 nodemon – Dev auto-reload
 
-🔒 Security Implementation
+🔒 Security Implementation:-
 
 Passwords hashed & salted before storage
 
@@ -54,8 +54,8 @@ Email verification ensures valid users
 
 Secure cookie & CORS setup for production
 
-📌 Project Outcome
+📌 Project Outcome:- 
 Improved hands-on knowledge of secure backend authentication, JWT & cookie-based auth, Express middleware architecture, and real-world API security practices.
 
-✨ Required .env Keys
+✨ Required:- .env Keys
 PORT | MONGO_URL | JWT_SECRET | SMTP_USER | SMTP_PASSWORD | SENDER_EMAIL
