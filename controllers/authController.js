@@ -7,21 +7,21 @@ const transporter = require('../config/nodemailer');
 const register = async (req, res) => {
     const { name, email, password } = req.body;
 
-    if (!name || !email || !password) {
+    if (!name || !email || !password) { // get 
         return res.json({ success: false, message: 'Missing details' });
     }
 
     try {
-        const existingUser = await User.findOne({ email });
+        const existingUser = await User.findOne({ email }); // check
         if (existingUser) {
             res.status(400).json({ success: false, message: 'User already exists' });
         }
-        const hashedPassword = await bcrypt.hash(password, 10);
+        const hashedPassword = await bcrypt.hash(password, 10); // hash
 
         const user = new User({ name, email, password: hashedPassword });
         await user.save();
 
-        const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, { expiresIn: '7d' });
+        const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, { expiresIn: '7d' }); // create token
         res.cookie('token', token, {
             httpOnly: true,
             secure: process.env.NODE_ENV === 'production',
@@ -30,7 +30,7 @@ const register = async (req, res) => {
             maxAge: 7 * 24 * 60 * 60 * 1000
         });
         // Welcome Email
-        const mailOptions = {
+        const mailOptions = {   // send mail
             from: process.env.SENDER_EMAIL,
             to: email,
             subject: 'Welcome to Team Fusion X',
